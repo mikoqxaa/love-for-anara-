@@ -1,0 +1,129 @@
+/* Общий фон */
+body {
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+    background: linear-gradient(120deg, #ff9a9e, #fad0c4, #ffdde1);
+    background-size: 300% 300%;
+    animation: gradientBG 8s ease infinite;
+    color: white;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+/* Анимация градиента */
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Контейнер с текстом */
+.content {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 30px;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    position: relative;
+    z-index: 2;
+}
+
+/* Заголовок */
+h1 {
+    font-size: 2.8em;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+/* Текст */
+.love-text {
+    font-size: 1.4em;
+    margin-bottom: 15px;
+    line-height: 1.6;
+    text-shadow: 2px 2px 8px rgba(255, 255, 255, 0.6);
+}
+
+/* Галерея */
+.gallery {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.gallery img {
+    width: 30%;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.gallery img:hover {
+    transform: scale(1.1);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+}
+
+/* Пульсирующее сердце */
+.heart-big {
+    position: relative;
+    width: 80px;
+    height: 80px;
+    background: red;
+    margin: 50px auto;
+    transform: rotate(-45deg);
+    box-shadow: -10px 10px 50px rgba(255, 0, 0, 0.6);
+    animation: pulse 1s infinite;
+}
+
+.heart-big::before, .heart-big::after {
+    content: "";
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    background: red;
+    border-radius: 50%;
+}
+
+.heart-big::before {
+    top: -40px;
+    left: 0;
+}
+
+.heart-big::after {
+    left: 40px;
+    top: 0;
+}
+
+/* Анимация сердца */
+@keyframes pulse {
+    0% { transform: scale(1) rotate(-45deg); }
+    50% { transform: scale(1.2) rotate(-45deg); }
+    100% { transform: scale(1) rotate(-45deg); }
+}
+
+/* Падающие сердечки */
+.hearts-container {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+}
+
+.heart {
+    position: absolute;
+    color: red;
+    font-size: 26px;
+    opacity: 0.8;
+    animation: fall linear infinite;
+}
+
+@keyframes fall {
+    0% { transform: translateY(0); opacity: 1; }
+    100% { transform: translateY(100vh); opacity: 0; }
+}
